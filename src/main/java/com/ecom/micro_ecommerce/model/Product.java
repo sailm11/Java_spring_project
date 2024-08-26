@@ -5,10 +5,13 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +30,13 @@ public class Product {
     private String brand;
     private String category;
     private BigDecimal price;
-    private Byte available;
+    private boolean available;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
     private Date date;
     private int quantity;
+
+    private String imgName;
+    private String imgType;
+    @Lob
+    private byte[] imgDate;
 }

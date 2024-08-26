@@ -23,9 +23,10 @@ public class ConnectorForSql {
     }
 
     public void save(Product p) {
-        String query = "insert into product values(?,?,?,?,?,?,?,?,?)";
-        template.update(query, p.getId(), 1, p.getBrand(), p.getCategory(), p.getDate(), p.getDesci(), p.getName(),
-                p.getPrice(),
+        String query = "insert into product values(?,?,?,?,?,?,?,?,?,?)";
+        template.update(query, p.getId(), p.isAvailable(), p.getBrand(), p.getCategory(), p.getDate(), p.getDesci(),
+                p.getName(),
+                p.getImgDate(), p.getImgName(), p.getImgType(), p.getPrice(),
 
                 p.getQuantity());
     }
